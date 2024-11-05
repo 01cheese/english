@@ -115,11 +115,13 @@
         }
     }
 
-    function getRandomOptions(expressions, correctAnswer, language) {
-        const options = expressions.map(exp => exp[language]).filter(opt => opt !== correctAnswer);
-        shuffle(options);
-        return options;
-    }
+function getRandomOptions(expressions, correctAnswer, language) {
+    const options = expressions.map(exp => exp[language]).filter(opt => opt !== correctAnswer);
+    shuffle(options);
+    return options.length ? options : []; // Возвращаем пустой массив, если нет подходящих вариантов
+}
+
+
 
     function displayQuestion() {
         if (currentQuestionIndex >= questions.length) return;

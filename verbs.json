@@ -1,17 +1,410 @@
 [
     {
-        "question": "What would 'see' be in the past?",
-        "options": ["seeing", "saw", "seed", "saws"],
+        "question": "What is the past form of 'see'?",
+        "options": ["saw", "seed", "seen", "sees"],
         "answer": "saw"
     },
     {
-        "question": "What is the past tense of 'go'?",
-        "options": ["gone", "went", "goed", "goes"],
-        "answer": "went"
+        "question": "What is the past participle of 'go'?",
+        "options": ["went", "gone", "going", "goes"],
+        "answer": "gone"
     },
     {
-        "question": "What would 'take' be in the past?",
-        "options": ["taking", "taked", "took", "takes"],
-        "answer": "took"
+        "question": "Choose the correct past form of 'begin'.",
+        "options": ["began", "begun", "begining", "begins"],
+        "answer": "began"
+    },
+    {
+        "question": "What is the base form of 'taught'?",
+        "options": ["teach", "teached", "teaching", "taught"],
+        "answer": "teach"
+    },
+    {
+        "question": "Which is the correct past form of 'eat'?",
+        "options": ["ate", "eaten", "eating", "eats"],
+        "answer": "ate"
+    },
+    {
+        "question": "What is the past participle of 'drink'?",
+        "options": ["drank", "drinked", "drunk", "drinks"],
+        "answer": "drunk"
+    },
+    {
+        "question": "Translate to English: 'понял' (understand)",
+        "options": ["understood", "understands", "understanded", "understated"],
+        "answer": "understood"
+    },
+    {
+        "question": "What is the base form of 'bought'?",
+        "options": ["buy", "bought", "buyed", "buys"],
+        "answer": "buy"
+    },
+    {
+        "question": "What is the past form of 'write'?",
+        "options": ["wrote", "written", "writing", "writed"],
+        "answer": "wrote"
+    },
+    {
+        "question": "Choose the correct past participle of 'sing'.",
+        "options": ["sang", "singed", "sung", "singing"],
+        "answer": "sung"
+    },
+    {
+        "question": "What is the past form of 'fly'?",
+        "options": ["flew", "flown", "flies", "flyed"],
+        "answer": "flew"
+    },
+    {
+        "question": "Which is the correct past participle of 'take'?",
+        "options": ["took", "taken", "taked", "takes"],
+        "answer": "taken"
+    },
+    {
+        "question": "Translate to English: 'носил' (wear)",
+        "options": ["worn", "weared", "wore", "wears"],
+        "answer": "wore"
+    },
+    {
+        "question": "What is the past form of 'teach'?",
+        "options": ["taught", "teached", "taughted", "teaches"],
+        "answer": "taught"
+    },
+    {
+        "question": "What is the base form of 'left'?",
+        "options": ["leave", "leaves", "left", "leaf"],
+        "answer": "leave"
+    },
+    {
+        "question": "What is the past participle of 'forget'?",
+        "options": ["forgot", "forgotten", "forgots", "forgeted"],
+        "answer": "forgotten"
+    },
+    {
+        "question": "Choose the correct past form of 'break'.",
+        "options": ["broke", "breaked", "breaking", "broked"],
+        "answer": "broke"
+    },
+    {
+        "question": "What is the past form of 'choose'?",
+        "options": ["chose", "choosen", "chooses", "choice"],
+        "answer": "chose"
+    },
+    {
+        "question": "What is the past participle of 'see'?",
+        "options": ["seen", "saw", "seed", "seeing"],
+        "answer": "seen"
+    },
+    {
+        "question": "What is the past form of 'begin'?",
+        "options": ["began", "begun", "begin", "begined"],
+        "answer": "began"
+    },
+    {
+        "question": "Choose the correct past form of 'run'.",
+        "options": ["ran", "running", "run", "runned"],
+        "answer": "ran"
+    },
+
+        {
+        "question": "What is the past participle of 'win'?",
+        "options": ["won", "winned", "winning", "wins"],
+        "answer": "won"
+    },
+    {
+        "question": "What is the past form of 'find'?",
+        "options": ["found", "finded", "find", "finding"],
+        "answer": "found"
+    },
+    {
+        "question": "What is the past participle of 'bring'?",
+        "options": ["brought", "bringed", "broughten", "brings"],
+        "answer": "brought"
+    },
+    {
+        "question": "What is the past form of 'build'?",
+        "options": ["built", "builded", "build", "building"],
+        "answer": "built"
+    },
+    {
+        "question": "What is the past participle of 'give'?",
+        "options": ["given", "gave", "gived", "gives"],
+        "answer": "given"
+    },
+    {
+        "question": "What is the past form of 'drive'?",
+        "options": ["drove", "drived", "drive", "driven"],
+        "answer": "drove"
+    },
+    {
+        "question": "What is the past participle of 'drive'?",
+        "options": ["driven", "drove", "drived", "drives"],
+        "answer": "driven"
+    },
+    {
+        "question": "What is the past form of 'ride'?",
+        "options": ["rode", "ridden", "rides", "rided"],
+        "answer": "rode"
+    },
+    {
+        "question": "What is the past participle of 'ride'?",
+        "options": ["ridden", "rode", "ride", "rided"],
+        "answer": "ridden"
+    },
+    {
+        "question": "What is the past form of 'swear'?",
+        "options": ["swore", "sweared", "swear", "sworn"],
+        "answer": "swore"
+    },
+    {
+        "question": "What is the past participle of 'swear'?",
+        "options": ["sworn", "swore", "swears", "sweared"],
+        "answer": "sworn"
+    },
+    {
+        "question": "What is the past form of 'shake'?",
+        "options": ["shook", "shaked", "shakes", "shaken"],
+        "answer": "shook"
+    },
+    {
+        "question": "What is the past participle of 'shake'?",
+        "options": ["shaken", "shook", "shakes", "shaked"],
+        "answer": "shaken"
+    },
+    {
+        "question": "What is the past form of 'tear'?",
+        "options": ["tore", "teared", "tears", "torn"],
+        "answer": "tore"
+    },
+    {
+        "question": "What is the past participle of 'tear'?",
+        "options": ["torn", "tore", "tears", "teared"],
+        "answer": "torn"
+    },
+    {
+        "question": "What is the past form of 'wear'?",
+        "options": ["wore", "wear", "weared", "worn"],
+        "answer": "wore"
+    },
+    {
+        "question": "What is the past participle of 'wear'?",
+        "options": ["worn", "wore", "wears", "weared"],
+        "answer": "worn"
+    },
+    {
+        "question": "What is the past form of 'lend'?",
+        "options": ["lent", "lended", "lend", "landing"],
+        "answer": "lent"
+    },
+    {
+        "question": "What is the past participle of 'lend'?",
+        "options": ["lent", "lended", "lend", "landing"],
+        "answer": "lent"
+    },
+    {
+        "question": "What is the past form of 'lead'?",
+        "options": ["led", "lead", "leaded", "leading"],
+        "answer": "led"
+    },
+    {
+        "question": "What is the past participle of 'lead'?",
+        "options": ["led", "lead", "leaded", "leading"],
+        "answer": "led"
+    },
+    {
+        "question": "What is the past form of 'hide'?",
+        "options": ["hid", "hide", "hidden", "hides"],
+        "answer": "hid"
+    },
+    {
+        "question": "What is the past participle of 'hide'?",
+        "options": ["hidden", "hid", "hide", "hides"],
+        "answer": "hidden"
+    },
+    {
+        "question": "What is the past form of 'choose'?",
+        "options": ["chose", "choosen", "chooses", "choosed"],
+        "answer": "chose"
+    },
+    {
+        "question": "What is the past participle of 'choose'?",
+        "options": ["chosen", "chose", "chooses", "choosed"],
+        "answer": "chosen"
+    },
+    {
+        "question": "What is the past form of 'steal'?",
+        "options": ["stole", "stealed", "steals", "stolen"],
+        "answer": "stole"
+    },
+    {
+        "question": "What is the past participle of 'steal'?",
+        "options": ["stolen", "stole", "steals", "stealed"],
+        "answer": "stolen"
+    },
+    {
+        "question": "What is the past form of 'fall'?",
+        "options": ["fell", "falled", "falls", "fallen"],
+        "answer": "fell"
+    },
+    {
+        "question": "What is the past participle of 'fall'?",
+        "options": ["fallen", "fell", "falls", "falled"],
+        "answer": "fallen"
+    },
+    {
+        "question": "What is the past form of 'draw'?",
+        "options": ["drew", "drawed", "draws", "drawn"],
+        "answer": "drew"
+    },
+    {
+        "question": "What is the past participle of 'draw'?",
+        "options": ["drawn", "drew", "draws", "drawed"],
+        "answer": "drawn"
+    },
+    {
+        "question": "What is the past form of 'blow'?",
+        "options": ["blew", "blowed", "blows", "blown"],
+        "answer": "blew"
+    },
+    {
+        "question": "What is the past participle of 'blow'?",
+        "options": ["blown", "blew", "blows", "blowed"],
+        "answer": "blown"
+    },
+    {
+        "question": "What is the past form of 'freeze'?",
+        "options": ["froze", "freezed", "freezes", "frozen"],
+        "answer": "froze"
+    },
+    {
+        "question": "What is the past participle of 'freeze'?",
+        "options": ["frozen", "froze", "freezes", "freezed"],
+        "answer": "frozen"
+    },
+    {
+        "question": "What is the past form of 'grow'?",
+        "options": ["grew", "growed", "grows", "grown"],
+        "answer": "grew"
+    },
+    {
+        "question": "What is the past participle of 'grow'?",
+        "options": ["grown", "grew", "grows", "growed"],
+        "answer": "grown"
+    },
+    {
+        "question": "What is the past form of 'shrink'?",
+        "options": ["shrank", "shrinked", "shrinks", "shrunk"],
+        "answer": "shrank"
+    },
+    {
+        "question": "What is the past participle of 'shrink'?",
+        "options": ["shrunk", "shrank", "shrinks", "shrinked"],
+        "answer": "shrunk"
+    },
+    {
+        "question": "What is the past form of 'spend'?",
+        "options": ["spent", "spended", "spends", "spend"],
+        "answer": "spent"
+    },
+    {
+        "question": "What is the past participle of 'spend'?",
+        "options": ["spent", "spended", "spends", "spend"],
+        "answer": "spent"
+    },
+    {
+        "question": "What is the past form of 'sell'?",
+        "options": ["sold", "selled", "sells", "selling"],
+        "answer": "sold"
+    },
+    {
+        "question": "What is the past participle of 'sell'?",
+        "options": ["sold", "selled", "sells", "selling"],
+        "answer": "sold"
+    },
+    
+    {
+        "question": "What is the past participle of 'swim'?",
+        "options": ["swam", "swum", "swimmed", "swims"],
+        "answer": "swum"
+    },
+    {
+        "question": "Translate to English: 'приехал' (come)",
+        "options": ["came", "comed", "come", "comes"],
+        "answer": "came"
+    },
+    {
+        "question": "What is the base form of 'found'?",
+        "options": ["find", "found", "finded", "finds"],
+        "answer": "find"
+    },
+    {
+        "question": "What is the past form of 'think'?",
+        "options": ["thought", "thinked", "thinking", "thinks"],
+        "answer": "thought"
+    },
+    {
+        "question": "What is the past participle of 'speak'?",
+        "options": ["spoke", "spoken", "speaked", "speaks"],
+        "answer": "spoken"
+    },
+    {
+        "question": "What is the past form of 'buy'?",
+        "options": ["bought", "buyed", "buy", "buied"],
+        "answer": "bought"
+    },
+    {
+        "question": "Which is the correct past participle of 'make'?",
+        "options": ["made", "maked", "making", "makes"],
+        "answer": "made"
+    },
+    {
+        "question": "What is the past form of 'know'?",
+        "options": ["knew", "know", "known", "knowed"],
+        "answer": "knew"
+    },
+    {
+        "question": "What is the past participle of 'know'?",
+        "options": ["known", "knew", "know", "knowed"],
+        "answer": "known"
+    },
+    {
+        "question": "What is the past form of 'come'?",
+        "options": ["came", "comed", "comes", "come"],
+        "answer": "came"
+    },
+    {
+        "question": "What is the past participle of 'come'?",
+        "options": ["come", "came", "comes", "coming"],
+        "answer": "come"
+    },
+    {
+        "question": "What is the past form of 'fall'?",
+        "options": ["fell", "fallen", "falled", "falls"],
+        "answer": "fell"
+    },
+    {
+        "question": "What is the past participle of 'fall'?",
+        "options": ["fallen", "fell", "fall", "falled"],
+        "answer": "fallen"
+    },
+    {
+        "question": "What is the past form of 'win'?",
+        "options": ["won", "winned", "winning", "wins"],
+        "answer": "won"
+    },
+    {
+        "question": "What is the past participle of 'win'?",
+        "options": ["won", "winning", "winned", "wins"],
+        "answer": "won"
+    },
+    {
+        "question": "What is the past form of 'write'?",
+        "options": ["wrote", "written", "writes", "writing"],
+        "answer": "wrote"
+    },
+    {
+        "question": "What is the past participle of 'write'?",
+        "options": ["written", "wrote", "writes", "write"],
+        "answer": "written"
     }
 ]
+

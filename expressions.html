@@ -59,142 +59,106 @@
 <div class="quiz-container">
     <div class="question" id="question">Question will appear here</div>
     <div class="options">
-        <div class="option red" onclick="checkAnswer(this)"></div>
-        <div class="option blue" onclick="checkAnswer(this)"></div>
-        <div class="option yellow" onclick="checkAnswer(this)"></div>
-        <div class="option green" onclick="checkAnswer(this)"></div>
+        <div class="option red"></div>
+        <div class="option blue"></div>
+        <div class="option yellow"></div>
+        <div class="option green"></div>
     </div>
     <div class="feedback" id="feedback"></div>
 </div>
-    <button id="nextButton" onclick="nextQuestion()">Next Question</button>
-
 
 <script>
     let questions = [];
     let currentQuestionIndex = 0;
 
-    // Shuffle function to randomize questions and options
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
-    function nextQuestion() {
-    feedback.textContent = "";
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion();
-    } else {
-        feedback.textContent = "Quiz Completed!";
-        document.getElementById("nextButton").style.display = "none"; // Hide button after quiz completion
-    }
-}
 
-    // Load questions and randomize the language of each question
     async function loadQuestions() {
-    try {
-        const response = await fetch('expressions.json');
-        if (!response.ok) throw new Error('Failed to load JSON file');
-        
-        const expressions = await response.json();
+        try {
+            const response = await fetch('expressions.json');
+            if (!response.ok) throw new Error('Failed to load JSON file');
+            
+            const expressions = await response.json();
 
-        // Проверка, что expressions загружен и содержит элементы
-        if (!Array.isArray(expressions) || expressions.length === 0) {
-            throw new Error('No data found in expressions.json');
-        }
-
-        // Создаем вопросы на случайном языке (английский или русский)
-        questions = expressions.map(expression => {
-            const isEnglishQuestion = Math.random() > 0.5;
-
-            if (isEnglishQuestion) {
-                return {
-                    question: expression.english,
-                    answer: expression.russian,
-                    options: shuffle([expression.russian, ...getRandomOptions(expressions, expression.russian, "russian")]).slice(0, 4)
-                };
-            } else {
-                return {
-                    question: expression.russian,
-                    answer: expression.english,
-                    options: shuffle([expression.english, ...getRandomOptions(expressions, expression.english, "english")]).slice(0, 4)
-                };
+            if (!Array.isArray(expressions) || expressions.length === 0) {
+                throw new Error('No data found in expressions.json');
             }
-        });
 
-        shuffle(questions); // Перемешиваем вопросы
-        displayQuestion();   // Отображаем первый вопрос
-    } catch (error) {
-        console.error("Error loading questions:", error.message);
-        document.getElementById("question").textContent = "Failed to load quiz data.";
+            questions = expressions.map(expression => {
+                const isEnglishQuestion = Math.random() > 0.5;
+
+                if (isEnglishQuestion) {
+                    return {
+                        question: expression.english,
+                        answer: expression.russian,
+                        options: shuffle([expression.russian, ...getRandomOptions(expressions, expression.russian, "russian")]).slice(0, 4)
+                    };
+                } else {
+                    return {
+                        question: expression.russian,
+                        answer: expression.english,
+                        options: shuffle([expression.english, ...getRandomOptions(expressions, expression.english, "english")]).slice(0, 4)
+                    };
+                }
+            });
+
+            shuffle(questions);
+            displayQuestion();
+        } catch (error) {
+            console.error("Error loading questions:", error.message);
+            document.getElementById("question").textContent = "Failed to load quiz data.";
+        }
     }
-}
 
-
-    // Helper function to get random options in the specified language
     function getRandomOptions(expressions, correctAnswer, language) {
         const options = expressions.map(exp => exp[language]).filter(opt => opt !== correctAnswer);
         shuffle(options);
         return options;
     }
 
-    // Display current question
     function displayQuestion() {
-    if (currentQuestionIndex >= questions.length) return;
+        if (currentQuestionIndex >= questions.length) return;
 
-    const question = questions[currentQuestionIndex];
+        const question = questions[currentQuestionIndex];
+        document.getElementById("question").textContent = question.question;
+        const optionsElements = document.querySelectorAll(".option");
 
-    // Проверка, что вопрос имеет все необходимые свойства
-    if (!question || !question.question || !question.answer || !Array.isArray(question.options)) {
-        console.error("Invalid question structure:", question);
-        document.getElementById("question").textContent = "Invalid question data.";
-        return;
+        question.options.forEach((option, index) => {
+            if (optionsElements[index]) {
+                optionsElements[index].textContent = option;
+                optionsElements[index].onclick = () => checkAnswer(option); // Assign the click event here
+            }
+        });
     }
 
-    document.getElementById("question").textContent = question.question;
-    const optionsElements = document.querySelectorAll(".option");
-
-    // Отображение вариантов ответов
-    question.options.forEach((option, index) => {
-        if (optionsElements[index]) {
-            optionsElements[index].textContent = option;
-        }
-    });
-}
-
-
-    // Check answer
     function checkAnswer(selectedOption) {
-    const question = questions[currentQuestionIndex];
-    const feedback = document.getElementById("feedback");
+        const question = questions[currentQuestionIndex];
+        const feedback = document.getElementById("feedback");
 
-    // Проверка наличия question и ответа
-    if (!question || !selectedOption || typeof selectedOption.textContent !== "string") {
-        feedback.textContent = "Invalid answer.";
-        feedback.style.color = "red";
-        return;
-    }
-
-    if (selectedOption.textContent === question.answer) {
-        feedback.textContent = "Correct!";
-        feedback.style.color = "green";
-    } else {
-        feedback.textContent = `Incorrect! The correct answer is "${question.answer}"`;
-        feedback.style.color = "red";
-    }
-
-    // Переход к следующему вопросу через 2 секунды
-    setTimeout(() => {
-        feedback.textContent = "";
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            displayQuestion();
+        if (selectedOption === question.answer) {
+            feedback.textContent = "Correct!";
+            feedback.style.color = "green";
         } else {
-            feedback.textContent = "Quiz Completed!";
+            feedback.textContent = `Incorrect! The correct answer is "${question.answer}"`;
+            feedback.style.color = "red";
         }
-    }, 3000);
-}
+
+        // Move to the next question after 2 seconds
+        setTimeout(() => {
+            feedback.textContent = "";
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                feedback.textContent = "Quiz Completed!";
+            }
+        }, 3000);
+    }
 
     // Start loading questions
     loadQuestions();

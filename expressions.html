@@ -66,6 +66,8 @@
     </div>
     <div class="feedback" id="feedback"></div>
 </div>
+    <button id="nextButton" onclick="nextQuestion()">Next Question</button>
+
 
 <script>
     let questions = [];
@@ -78,6 +80,16 @@
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
+    function nextQuestion() {
+    feedback.textContent = "";
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        feedback.textContent = "Quiz Completed!";
+        document.getElementById("nextButton").style.display = "none"; // Hide button after quiz completion
+    }
+}
 
     // Load questions and randomize the language of each question
     async function loadQuestions() {

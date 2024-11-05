@@ -46,8 +46,7 @@
     <div id="feedback" class="feedback"></div>
 
     <script>
-        let questions = [];
-        let currentQuestionIndex = 0;
+        let expressions = [];
 
         // Shuffle function to randomize options
         function shuffle(array) {
@@ -63,33 +62,12 @@
                 const response = await fetch('expressions.json');
                 if (!response.ok) throw new Error('Failed to load JSON file');
                 
-                const expressions = await response.json();
+                expressions = await response.json();
                 if (!Array.isArray(expressions) || expressions.length === 0) {
                     throw new Error('No data found in expressions.json');
                 }
 
-                // Randomly select a question
-                const randomIndex = Math.floor(Math.random() * expressions.length);
-                const correctExpression = expressions[randomIndex];
-                
-                // Randomly choose the language
-                const isEnglishQuestion = Math.random() > 0.5;
-                const question = isEnglishQuestion ? correctExpression.english : correctExpression.russian;
-                const correctAnswer = isEnglishQuestion ? correctExpression.russian : correctExpression.english;
-
-                // Prepare options
-                const options = [correctAnswer];
-                while (options.length < 4) {
-                    const randomOptionIndex = Math.floor(Math.random() * expressions.length);
-                    const randomOption = isEnglishQuestion ? expressions[randomOptionIndex].russian : expressions[randomOptionIndex].english;
-                    if (!options.includes(randomOption)) {
-                        options.push(randomOption);
-                    }
-                }
-
-                shuffle(options); // Shuffle options
-
-                questions.push({ question, options, correctAnswer });
+                // Start displaying questions
                 displayQuestion();
             } catch (error) {
                 console.error("Error loading questions:", error.message);
@@ -97,43 +75,54 @@
             }
         }
 
-        // Display current question
+        // Display a random question
         function displayQuestion() {
-            if (currentQuestionIndex >= questions.length) return;
+            const randomIndex = Math.floor(Math.random() * expressions.length);
+            const correctExpression = expressions[randomIndex];
+            
+            // Randomly choose the language
+            const isEnglishQuestion = Math.random() > 0.5;
+            const question = isEnglishQuestion ? correctExpression.english : correctExpression.russian;
+            const correctAnswer = isEnglishQuestion ? correctExpression.russian : correctExpression.english;
 
-            const questionData = questions[currentQuestionIndex];
-            document.getElementById("question").textContent = questionData.question;
+            // Prepare options
+            const options = [correctAnswer];
+            while (options.length < 4) {
+                const randomOptionIndex = Math.floor(Math.random() * expressions.length);
+                const randomOption = isEnglishQuestion ? expressions[randomOptionIndex].russian : expressions[randomOptionIndex].english;
+                if (!options.includes(randomOption)) {
+                    options.push(randomOption);
+                }
+            }
+
+            shuffle(options); // Shuffle options
+
+            document.getElementById("question").textContent = question;
             const optionsElements = document.querySelectorAll(".option");
 
-            questionData.options.forEach((option, index) => {
+            options.forEach((option, index) => {
                 if (optionsElements[index]) {
                     optionsElements[index].textContent = option;
-                    optionsElements[index].onclick = () => checkAnswer(option);
+                    optionsElements[index].onclick = () => checkAnswer(option, correctAnswer);
                 }
             });
         }
 
         // Check answer
-        function checkAnswer(selectedOption) {
-            const questionData = questions[currentQuestionIndex];
+        function checkAnswer(selectedOption, correctAnswer) {
             const feedback = document.getElementById("feedback");
 
-            if (selectedOption === questionData.correctAnswer) {
+            if (selectedOption === correctAnswer) {
                 feedback.textContent = "Correct!";
                 feedback.style.color = "green";
             } else {
-                feedback.textContent = `Incorrect! The correct answer is "${questionData.correctAnswer}"`;
+                feedback.textContent = `Incorrect! The correct answer is "${correctAnswer}"`;
                 feedback.style.color = "red";
             }
 
             setTimeout(() => {
                 feedback.textContent = "";
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                    displayQuestion();
-                } else {
-                    feedback.textContent = "Quiz Completed!";
-                }
+                displayQuestion(); // Load next question
             }, 3000);
         }
 

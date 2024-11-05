@@ -7,30 +7,50 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .quiz-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
         .question {
             font-size: 1.5em;
             margin-bottom: 20px;
         }
-        .option {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 150px;
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
+        .option {
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .option.red { background-color: #ff4d4d; }
+        .option.blue { background-color: #4d79ff; }
+        .option.yellow { background-color: #ffd633; }
+        .option.green { background-color: #47d147; }
         .option:hover {
-            background-color: #0056b3;
+            opacity: 0.8;
         }
         .feedback {
             margin-top: 20px;
             font-size: 1.2em;
+            font-weight: bold;
         }
     </style>
 </head>

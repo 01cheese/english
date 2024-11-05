@@ -78,31 +78,42 @@
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
-    
-    // ЗагрузкаJSONa
+
+    // Load questions and randomize the language of each question
     async function loadQuestions() {
         const response = await fetch('expressions.json');
         const expressions = await response.json();
-        
-        
-        questions = expressions.map(expression => ({
-            question: expression.english,
-            answer: expression.russian,
-            options: shuffle([expression.russian, ...getRandomTranslations(expressions, expression.russian)]).slice(0, 4)
-        }));
-        
+
+        questions = expressions.map(expression => {
+            const isEnglishQuestion = Math.random() > 0.5; // Randomize question language
+
+            if (isEnglishQuestion) {
+                return {
+                    question: expression.english,
+                    answer: expression.russian,
+                    options: shuffle([expression.russian, ...getRandomOptions(expressions, expression.russian, "russian")]).slice(0, 4)
+                };
+            } else {
+                return {
+                    question: expression.russian,
+                    answer: expression.english,
+                    options: shuffle([expression.english, ...getRandomOptions(expressions, expression.english, "english")]).slice(0, 4)
+                };
+            }
+        });
+
         shuffle(questions);
         displayQuestion();
     }
 
-    // Helper function to get random translations for options
-    function getRandomTranslations(expressions, correctAnswer) {
-        const translations = expressions.map(exp => exp.russian).filter(trans => trans !== correctAnswer);
-        shuffle(translations);
-        return translations;
+    // Helper function to get random options in the specified language
+    function getRandomOptions(expressions, correctAnswer, language) {
+        const options = expressions.map(exp => exp[language]).filter(opt => opt !== correctAnswer);
+        shuffle(options);
+        return options;
     }
 
-    // Отображение
+    // Display current question
     function displayQuestion() {
         const question = questions[currentQuestionIndex];
         document.getElementById("question").textContent = question.question;
@@ -112,7 +123,7 @@
         });
     }
 
-    // Проверка
+    // Check answer
     function checkAnswer(selectedOption) {
         const question = questions[currentQuestionIndex];
         const feedback = document.getElementById("feedback");
@@ -125,6 +136,7 @@
             feedback.style.color = "red";
         }
 
+        // Move to next question after 2 seconds
         setTimeout(() => {
             feedback.textContent = "";
             currentQuestionIndex++;
@@ -135,6 +147,8 @@
             }
         }, 3000);
     }
+
+    // Start loading questions
     loadQuestions();
 </script>
 

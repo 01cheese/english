@@ -79,17 +79,21 @@
         function displayQuestion() {
             const randomIndex = Math.floor(Math.random() * expressions.length);
             const correctExpression = expressions[randomIndex];
-            
-            // Randomly choose the language
+
+            // Randomly choose the language for the question
             const isEnglishQuestion = Math.random() > 0.5;
             const question = isEnglishQuestion ? correctExpression.english : correctExpression.russian;
             const correctAnswer = isEnglishQuestion ? correctExpression.russian : correctExpression.english;
 
             // Prepare options
             const options = [correctAnswer];
+
             while (options.length < 4) {
                 const randomOptionIndex = Math.floor(Math.random() * expressions.length);
-                const randomOption = isEnglishQuestion ? expressions[randomOptionIndex].russian : expressions[randomOptionIndex].english;
+                const randomOption = isEnglishQuestion 
+                    ? expressions[randomOptionIndex].russian 
+                    : expressions[randomOptionIndex].english;
+                
                 if (!options.includes(randomOption)) {
                     options.push(randomOption);
                 }

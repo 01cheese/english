@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What would 'see' be in the past?",
+        "options": ["seeing", "saw", "seed", "saws"],
+        "answer": "saw"
+    },
+    {
+        "question": "What is the past tense of 'go'?",
+        "options": ["gone", "went", "goed", "goes"],
+        "answer": "went"
+    },
+    {
+        "question": "What would 'take' be in the past?",
+        "options": ["taking", "taked", "took", "takes"],
+        "answer": "took"
+    }
+]

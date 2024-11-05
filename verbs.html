@@ -4,55 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irregular Verbs Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .quiz-container {
-            width: 80%;
-            max-width: 600px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        .question {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-        .options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .option {
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            color: #fff;
-            transition: background-color 0.3s;
-        }
-        .option.red { background-color: #ff4d4d; }
-        .option.blue { background-color: #4d79ff; }
-        .option.yellow { background-color: #ffd633; }
-        .option.green { background-color: #47d147; }
-        .option:hover {
-            opacity: 0.8;
-        }
-        .feedback {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -63,6 +15,7 @@
         <div class="option blue" onclick="checkAnswer(this)"></div>
         <div class="option yellow" onclick="checkAnswer(this)"></div>
         <div class="option green" onclick="checkAnswer(this)"></div>
+        <button class="option grey" onclick="document.location='index.html'">Back to main</button>
     </div>
     <div class="feedback" id="feedback"></div>
 </div>

@@ -1,62 +1,73 @@
+html, body{
+    height: 100%;
+}
 
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    
     margin: 0;
-    padding: 20px;
-    background-color: #f3f3f3;
+
+    height: 100%;
+    
+    background: linear-gradient(45deg, #b92b27, #1565C0);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
 }
-.container {
+
+@keyframes gradient{
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.quiz-container {
     width: 80%;
     max-width: 600px;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    
+    background:  #8c0606;
+
 }
 .question {
     font-size: 1.5em;
     margin-bottom: 20px;
 }
-.answer-options, .writing-section {
-    display: flex;
-    flex-direction: column;
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-.answer {
-    padding: 10px;
-    background-color: #e0e0e0;
-    border: 2px solid transparent;
-    border-radius: 5px;
+.option {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-.answer:hover {
-    background-color: #d0d0d0;
-}
-.answer.correct {
-    border-color: green;
-}
-.answer.incorrect {
-    border-color: red;
-}
-.writing-section input {
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-.submit-btn {
-    padding: 10px;
-    font-size: 1em;
     color: #fff;
-    background-color: #007bff;
+    transition: background-color 0.3s;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
-.submit-btn:hover {
-    background-color: #0056b3;
+.option.red { background-color: #ff4d4d; }
+.option.blue { background-color: #4d79ff; }
+.option.yellow { background-color: #ffd633; }
+.option.green { background-color: #47d147; }
+.option.grey { background-color: gray ;}
+.option:hover {
+    opacity: 0.8;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
 }

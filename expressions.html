@@ -4,47 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-            text-align: center;
-        }
-        .question {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-        .option {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 150px;
-        }
-        .option:hover {
-            background-color: #0056b3;
-        }
-        .feedback {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Language Quiz</h1>
-    <div id="question" class="question"></div>
-    <div id="options" class="options">
-        <button class="option"></button>
-        <button class="option"></button>
-        <button class="option"></button>
-        <button class="option"></button>
+    <div class="quiz-container">
+        <div id="question" class="question"></div>
+        <div id="options" class="options">
+            <button class="option red"></button>
+            <button class="option blue"></button>
+            <button class="option yellow"></button>
+            <button class="option green"></button>
+            <button class="option grey" onclick="document.location='index.html'">Back to main</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
     </div>
-    <div id="feedback" class="feedback"></div>
-
     <script>
         let expressions = [];
 

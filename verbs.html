@@ -70,11 +70,20 @@
 <script>
     let questions = [];
     let currentQuestionIndex = 0;
+
+    // Shuffle function to randomize questions
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
     
     // Загрузка данных из JSON файла
     async function loadQuestions() {
         const response = await fetch('verbs.json'); // JSON файл должен быть в той же директории
         questions = await response.json();
+        shuffle(questions); // Shuffle the questions to randomize them
         displayQuestion();
     }
 

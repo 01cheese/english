@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in;
+            cursor: url('https://cur.cursors-4u.net/cursors/cur-1/cur1.ani'), auto; /* Custom cursor */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideIn 0.5s forwards;
+            transform: translateY(-30px);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        a {
+            color: #00aaff; /* Link color */
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            color: #ffcc00; /* Change link color on hover */
+            transform: scale(1.1); /* Slightly enlarge the link */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .word {
+            position: absolute;
+            font-size: 24px;
+            color: #00aaff;
+            opacity: 0;
+            animation: drop 1s forwards;
+        }
+
+        @keyframes drop {
+            from {
+                transform: translateY(-30px);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body onclick="dropRandomWord(event)">
+    <div class="container">
+        <h1>Если нашли ошибку, появилась идея или просто скушно?</h1>
+        <p>Вот контакты:</p>
+        <p>Email: <a href="mailto:zelenko009@gmail.com">zelenko009@gmail.com</a></p>
+        <p>Telegram: <a href="https://t.me/vzbbsi" target="_blank">@vzbbsi</a></p>
+        <p>Удачи и спасибо что выбрали именно эту кантору!)</p>
+    </div>
+    <footer>
+        &copy; Design by VZBB
+    </footer>
+
+    <script>
+        const words = [
+            "apple", "book", "car", "dog", "cat", 
+            "house", "tree", "computer", "phone", "music"
+        ];
+
+        function getRandomWord() {
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function dropRandomWord(event) {
+            const word = getRandomWord();
+            const wordElement = document.createElement("div");
+            wordElement.className = "word";
+            wordElement.textContent = word;
+
+            // Set the position of the word based on the click event
+            wordElement.style.left = `${event.clientX}px`;
+            wordElement.style.top = `${event.clientY}px`;
+
+            document.body.appendChild(wordElement);
+
+            // Remove the word element after the animation ends
+            setTimeout(() => {
+                wordElement.remove();
+            }, 2000); // Match this duration with the animation duration
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Page with Animation</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* White text color */
+            display: flex; /* Flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Font style */
+            font-size: 2em; /* Font size */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .animated-text {
+            opacity: 0; /* Start invisible */
+            animation: fadeInOut 3s infinite; /* Animation effect */
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0; /* Start invisible */
+                transform: translateY(-20px); /* Move up slightly */
+            }
+            50% {
+                opacity: 1; /* Fully visible */
+                transform: translateY(0); /* Original position */
+            }
+            100% {
+                opacity: 0; /* Fade out */
+                transform: translateY(20px); /* Move down slightly */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-text">
+        To be continued
+    </div>
+</body>
+</html>

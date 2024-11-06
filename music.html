@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Language Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="question" class="question"></div>
+        <div id="options" class="options">
+            <button class="option red"></button>
+            <button class="option blue"></button>
+            <button class="option yellow"></button>
+            <button class="option green"></button>
+            <button class="option grey" onclick="document.location='index.html'">Back to main</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+    <script>
+        let expressions = [];
+
+        // Shuffle function to randomize options
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Load questions from JSON file
+        async function loadQuestions() {
+            try {
+                const response = await fetch('expressions.json');
+                if (!response.ok) throw new Error('Failed to load JSON file');
+                
+                expressions = await response.json();
+                if (!Array.isArray(expressions) || expressions.length === 0) {
+                    throw new Error('No data found in expressions.json');
+                }
+
+                // Start displaying questions
+                displayQuestion();
+            } catch (error) {
+                console.error("Error loading questions:", error.message);
+                document.getElementById("question").textContent = "Failed to load quiz data.";
+            }
+        }
+
+        // Display a random question
+        function displayQuestion() {
+            const randomIndex = Math.floor(Math.random() * expressions.length);
+            const correctExpression = expressions[randomIndex];
+
+            // Randomly choose the language for the question
+            const isEnglishQuestion = Math.random() > 0.5;
+            const question = isEnglishQuestion ? correctExpression.english : correctExpression.russian;
+            const correctAnswer = isEnglishQuestion ? correctExpression.russian : correctExpression.english;
+
+            // Prepare options
+            const options = [correctAnswer];
+
+            while (options.length < 4) {
+                const randomOptionIndex = Math.floor(Math.random() * expressions.length);
+                const randomOption = isEnglishQuestion 
+                    ? expressions[randomOptionIndex].russian 
+                    : expressions[randomOptionIndex].english;
+                
+                if (!options.includes(randomOption)) {
+                    options.push(randomOption);
+                }
+            }
+
+            shuffle(options); // Shuffle options
+
+            document.getElementById("question").textContent = question;
+            const optionsElements = document.querySelectorAll(".option");
+
+            options.forEach((option, index) => {
+                if (optionsElements[index]) {
+                    optionsElements[index].textContent = option;
+                    optionsElements[index].onclick = () => checkAnswer(option, correctAnswer);
+                }
+            });
+        }
+
+        // Check answer
+        function checkAnswer(selectedOption, correctAnswer) {
+            const feedback = document.getElementById("feedback");
+
+            if (selectedOption === correctAnswer) {
+                feedback.textContent = "Correct!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = `Incorrect! The correct answer is "${correctAnswer}"`;
+                feedback.style.color = "red";
+            }
+
+            setTimeout(() => {
+                feedback.textContent = "";
+                displayQuestion(); // Load next question
+            }, 3000);
+        }
+
+        // Start loading questions
+        loadQuestions();
+    </script>
+</body>
+</html>

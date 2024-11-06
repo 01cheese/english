@@ -33,7 +33,7 @@
         // Load questions from JSON file
         async function loadQuestions() {
             try {
-                const response = await fetch('expressions.json');
+                const response = await fetch('music.json');
                 if (!response.ok) throw new Error('Failed to load JSON file');
                 
                 expressions = await response.json();

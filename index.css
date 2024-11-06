@@ -1,6 +1,6 @@
 body {
     font-family: cursive;
-    background-color: #f4f4f4;
+    background-image: url("bg.png");
     margin: 0;
     padding: 20px;
     display: flex;
@@ -9,8 +9,13 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #323232; /* Light blue color */
     margin-bottom: 20px;
+    font-size: 2.5em; /* Increase font size */
+    text-align: center; /* Center align the text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    letter-spacing: 1px; /* Add space between letters */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 .container {
@@ -48,6 +53,42 @@ h1 {
 
 .box:nth-child(3) {
     background-color: #DC3545; /* Red */
+}
+
+.box:nth-child(4) {
+    background-color: #FFC107; /* Amber */
+}
+
+.box:nth-child(5) {
+    background-color: #6F42C1; /* Purple */
+}
+
+.box:nth-child(6) {
+    background-color: #17A2B8; /* Teal */
+}
+
+.box:nth-child(7) {
+    background-color: #343A40; /* Dark Gray */
+}
+
+.box:nth-child(8) {
+    background-color: #F8F9FA; /* Light Gray */
+}
+
+.box:nth-child(9) {
+    background-color: #FF5733; /* Coral */
+}
+
+.box:nth-child(10) {
+    background-color: #C70039; /* Crimson */
+}
+
+.box:nth-child(11) {
+    background-color: #900C3F; /* Dark Red */
+}
+
+.box:nth-child(12) {
+    background-color: #581845; /* Dark Purple */
 }
 
 @media (max-width: 600px) {

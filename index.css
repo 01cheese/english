@@ -75,7 +75,7 @@ h1 {
 }
 
 .box:nth-child(8) {
-    background-color: #F8F9FA; /* Light Gray */
+    background-color: #581845; /* Light Gray */
 }
 
 .box:nth-child(9) {
@@ -91,7 +91,7 @@ h1 {
 }
 
 .box:nth-child(12) {
-    background-color: #581845; /* Dark Purple */
+    background-color: #F8F9FA; /* Dark Purple */
 }
 
 @media (max-width: 600px) {
